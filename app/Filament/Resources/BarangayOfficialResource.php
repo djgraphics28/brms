@@ -23,16 +23,20 @@ class BarangayOfficialResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\FileUpload::make('image')
+                    ->columnSpanFull()
+                    ->image()
+                    ->required(),
+                Forms\Components\TextInput::make('name')->columnSpanFull()
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('sort')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('position')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('resume'),
+                Forms\Components\RichEditor::make('resume')->columnSpanFull(),
             ]);
     }
 
@@ -40,6 +44,7 @@ class BarangayOfficialResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('sort')
                     ->numeric()
                     ->sortable(),

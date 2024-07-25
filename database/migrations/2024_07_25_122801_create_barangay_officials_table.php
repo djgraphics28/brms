@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('barangay_officials', function (Blueprint $table) {
             $table->id();
             $table->integer('sort');
+            $table->string('image');
             $table->string('name');
             $table->string('position');
             $table->json('resume')->nullable();
