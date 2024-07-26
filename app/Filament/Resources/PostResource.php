@@ -31,7 +31,7 @@ class PostResource extends Resource
     /**
      * The resource icon.
      */
-    protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationIcon = 'heroicon-o-bell';
 
     /**
      * The resource navigation group.
