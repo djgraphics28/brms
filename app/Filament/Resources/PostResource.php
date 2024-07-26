@@ -38,6 +38,8 @@ class PostResource extends Resource
      */
     protected static ?string $navigationGroup = 'Collections';
 
+    protected static ?string $navigationLabel = 'Announcement';
+
     /**
      * The resource navigation sort order.
      */
@@ -66,16 +68,12 @@ class PostResource extends Resource
                             ->schema([
                                 Forms\Components\TextInput::make('title')
                                     ->placeholder('Enter a title')
-                                    ->live()
-                                    ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
-                                        if (($get('slug') ?? '') !== Str::slug($old) || $operation !== 'create') {
-                                            return;
-                                        }
-
-                                        $set('slug', Str::slug($state));
-                                    })
                                     ->required()
                                     ->maxLength(255)
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(function (Set $set, $state) {
+                                        $set('slug', Str::slug($state));
+                                    })
                                     ->autofocus(),
 
                                 Forms\Components\Builder::make('content')

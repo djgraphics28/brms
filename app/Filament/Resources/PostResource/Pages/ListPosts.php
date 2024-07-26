@@ -14,13 +14,15 @@ class ListPosts extends ListRecords
      */
     protected static string $resource = PostResource::class;
 
+    protected static ?string $title = 'Announcement';
+
     /**
      * The header actions.
      */
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('Create New Announcement'),
         ];
     }
 
