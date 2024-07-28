@@ -18,7 +18,7 @@ class BarangayOfficials extends Component
 
     public function mount()
     {
-        $this->capt = BarangayOfficial::where('sort', 1)->first();
+        $this->capt = BarangayOfficial::where('sort', 1)->first() ?? null;
 
         $this->officials = BarangayOfficial::whereNot('sort',1)->orderBy('sort','ASC')->get();
     }
