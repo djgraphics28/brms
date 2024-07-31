@@ -182,6 +182,124 @@ class Documents extends Component
         $this->reset();
     }
 
+    public function submitBarangayClearanceRequest()
+    {
+        try {
+            // Validate input
+            $this->validate([
+                'first_name' => 'required|string|max:255',
+                'middle_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'address' => 'required|string|max:255',
+                'birth_date' => 'required|date',
+                'birthplace' => 'required',
+                'gender' => 'required',
+                'civil_status' => 'required',
+                'purpose' => 'required',
+                'contact_person' => 'required|string',
+                'contact_number' => 'required|string|max:15',
+                'precinct_number' => 'required|string|max:255',
+                'weight' => 'required|numeric',
+                'height' => 'required|numeric',
+                'name_of_parents_guardian' => 'required|string|max:255',
+                'address_parents_guardian' => 'required|string|max:255',
+                'contact_number_parents' => 'required|string|max:15',
+                'relationship' => 'required|string',
+                'valid_id_1' => 'required|image', // Max 1MB per file
+                'valid_id_2' => 'required|image',
+            ]);
+
+            // Save the uploaded files
+            $valid_id_1_path = $this->valid_id_1->store('public');
+            $valid_id_2_path = $this->valid_id_2->store('public');
+
+            // Extract the file name from the file path
+            $validId1 = basename($valid_id_1_path);
+            $validId2 = basename($valid_id_2_path);
+
+            // Create a new request
+            Request::create([
+                'first_name' => $this->first_name,
+                'middle_name' => $this->middle_name,
+                'last_name' => $this->last_name,
+                'address' => $this->address,
+                'birth_date' => $this->birth_date,
+                'birthplace' => $this->birthplace,
+                'purpose' => $this->purpose,
+                'contact_number' => $this->contact_number,
+                'precinct_number' => $this->precinct_number,
+                'weight' => $this->weight,
+                'height' => $this->height,
+                'name_of_parents_guardian' => $this->name_of_parents_guardian,
+                'address_parents_guardian' => $this->address_parents_guardian,
+                'contact_number_parents' => $this->contact_number_parents,
+                'valid_id_1' => $validId1,
+                'valid_id_2' => $validId2,
+                'request_type' => "Barangay Clearance",
+            ]);
+
+            // Success message
+            session()->flash('message', 'Barangay Clearance request submitted successfully.');
+
+            // Reset form fields
+            $this->reset();
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Error submitting Barangay Clearance request: ' . $e->getMessage());
+
+            // Display error message to the user
+            session()->flash('error', $e->getMessage());
+        }
+    }
+
+
+    public function submitCertificateOfIndigencyRequest()
+    {
+        try {
+            // Validate input
+            $this->validate([
+                'first_name' => 'required|string|max:255',
+                'middle_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'address' => 'required|string|max:255',
+                'years_of_stay' => 'required',
+                'name_of_student' => 'required',
+                'purpose' => 'required',
+                'contact_number' => 'required|string|max:15',
+                'contact_person' => 'required|string|max:255',
+                'relationship' => 'required|string|max:15',
+            ]);
+
+            // Create a new request
+            Request::create([
+                'first_name' => $this->first_name,
+                'middle_name' => $this->middle_name,
+                'last_name' => $this->last_name,
+                'address' => $this->address,
+                'years_of_stay' => $this->years_of_stay,
+                'purpose' => $this->purpose,
+                'contact_number' => $this->contact_number,
+                'contact_person' => $this->contact_person,
+                'contact_person_number' => $this->contact_person_number,
+                'relationship' => $this->relationship,
+                'request_type' => "Certificate of Indigency",
+            ]);
+
+            // Success message
+            session()->flash('message', 'Certificate of Indigency request submitted successfully.');
+
+            // Reset form fields
+            $this->reset();
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Error submitting Certificate of Indigency request: ' . $e->getMessage());
+
+            // Display error message to the user
+            session()->flash('error', $e->getMessage());
+        }
+    }
+
+
     public function render()
     {
         // SEO setup
