@@ -128,6 +128,15 @@
                         </div>
 
                         <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" wire:model="email"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            @error('email')
+                                <span class="text-red-600 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div>
                             <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
                             <input type="text" id="address" wire:model="address"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
@@ -330,6 +339,16 @@
                         </div>
 
                         <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email
+                                Address</label>
+                            <input type="email" id="email" wire:model="email"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            @error('email')
+                                <span class="text-red-600 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div>
                             <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
                             <input type="text" id="address" wire:model="address"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
@@ -503,6 +522,16 @@
                         </div>
 
                         <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email
+                                Address</label>
+                            <input type="email" id="email" wire:model="email"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            @error('email')
+                                <span class="text-red-600 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div>
                             <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
                             <input type="text" id="address" wire:model="address"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
@@ -644,14 +673,14 @@
                         </div>
 
                         <div>
-                          <label for="address_parents_guardian"
-                              class="block text-sm font-medium text-gray-700">Parent's Guardian Address</label>
-                          <input type="text" id="address_parents_guardian" wire:model="address_parents_guardian"
-                              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
-                          @error('address_parents_guardian')
-                              <span class="text-red-500 text-sm">{{ $message }}</span>
-                          @enderror
-                      </div>
+                            <label for="address_parents_guardian"
+                                class="block text-sm font-medium text-gray-700">Parent's Guardian Address</label>
+                            <input type="text" id="address_parents_guardian" wire:model="address_parents_guardian"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            @error('address_parents_guardian')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         <div>
                             <label for="relationship"
@@ -755,6 +784,16 @@
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email
+                                Address</label>
+                            <input type="email" id="email" wire:model="email"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            @error('email')
+                                <span class="text-red-600 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div>

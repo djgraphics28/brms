@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Mail\ApprovedResponseMail;
 use Log;
 use Filament\Forms;
 use Filament\Tables;
@@ -138,8 +139,14 @@ class RequestResource extends Resource
                                 'approved_by' => Auth::user()->id, // Set the ID of the authenticated user
                             ]);
 
+                            // Success message
+                            $emailData = [
+                                'name' => $record->first_name,
+                                'requestType' => $record->request_type,
+                            ];
+
                             // Generate and send the PDF
-                            Mail::to($record->email)->send(new RequestApprovedMarkdown($record));
+                            Mail::to($record->email)->send(new ApprovedResponseMail($emailData));
 
                             Notification::make()
                                 ->title('Requests Approved')

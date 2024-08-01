@@ -2,14 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Models\Request; // Ensure this is the correct namespace for your model
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Spatie\SchemaOrg\Schema;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RequestAutoResponseMail;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use App\Models\Request; // Ensure this is the correct namespace for your model
 
 class Documents extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, LivewireAlert;
 
     public $documentType;
     public $first_name;
@@ -88,10 +91,14 @@ class Documents extends Component
 
     public function submitCedulaRequest()
     {
+
+        $this->resetValidation();
+
         $this->validate([
             'first_name' => 'required|string|max:255',
             'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'email' => 'required|email',
             'address' => 'required|string|max:255',
             'birth_date' => 'required|date',
             'birthplace' => 'required|string|max:255',
@@ -111,6 +118,7 @@ class Documents extends Component
             'first_name' => $this->first_name,
             'middle_name' => $this->middle_name,
             'last_name' => $this->last_name,
+            'email' => $this->email,
             'address' => $this->address,
             'birth_date' => $this->birth_date,
             'birthplace' => $this->birthplace,
@@ -127,7 +135,14 @@ class Documents extends Component
             'request_type' => "Cedula",
         ]);
 
-        session()->flash('message', 'Cedula request submitted successfully.');
+        $emailData = [
+            'name' => $this->first_name,
+            'requestType' => "Cedula",
+        ];
+
+        Mail::to($this->email)->send(new RequestAutoResponseMail($emailData));
+
+        $this->alert('success', 'Cedula request submitted successfully.');
 
         // Reset form fields
         $this->reset();
@@ -135,10 +150,13 @@ class Documents extends Component
 
     public function submitBarangayIDRequest()
     {
+        $this->resetValidation();
+
         $this->validate([
             'first_name' => 'required|string|max:255',
             'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'email' => 'required|email',
             'address' => 'required|string|max:255',
             'birth_date' => 'required|date',
             'contact_number' => 'required|string|max:15',
@@ -163,6 +181,7 @@ class Documents extends Component
             'first_name' => $this->first_name,
             'middle_name' => $this->middle_name,
             'last_name' => $this->last_name,
+            'email' => $this->email,
             'address' => $this->address,
             'birth_date' => $this->birth_date,
             'contact_number' => $this->contact_number,
@@ -176,7 +195,14 @@ class Documents extends Component
             'request_type' => "Barangay ID",
         ]);
 
-        session()->flash('message', 'Barangay ID request submitted successfully.');
+        $emailData = [
+            'name' => $this->first_name,
+            'requestType' => "Barangay ID",
+        ];
+
+        Mail::to($this->email)->send(new RequestAutoResponseMail($emailData));
+
+        $this->alert('success', 'Barangay ID request submitted successfully.');
 
         // Reset form fields
         $this->reset();
@@ -184,11 +210,15 @@ class Documents extends Component
 
     public function submitBarangayClearanceRequest()
     {
+
+        $this->resetValidation();
+
         // Validate input
         $this->validate([
             'first_name' => 'required|string|max:255',
             'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'email' => 'required|email',
             'address' => 'required|string|max:255',
             'birth_date' => 'required|date',
             'birthplace' => 'required',
@@ -221,6 +251,7 @@ class Documents extends Component
             'first_name' => $this->first_name,
             'middle_name' => $this->middle_name,
             'last_name' => $this->last_name,
+            'email' => $this->email,
             'address' => $this->address,
             'birth_date' => $this->birth_date,
             'birthplace' => $this->birthplace,
@@ -238,7 +269,14 @@ class Documents extends Component
         ]);
 
         // Success message
-        session()->flash('message', 'Barangay Clearance request submitted successfully.');
+        $emailData = [
+            'name' => $this->first_name,
+            'requestType' => "Barangay Clearance",
+        ];
+
+        Mail::to($this->email)->send(new RequestAutoResponseMail($emailData));
+
+        $this->alert('success', 'Barangay Clearance request submitted successfully.');
 
         // Reset form fields
         $this->reset();
@@ -247,11 +285,14 @@ class Documents extends Component
 
     public function submitCertificateOfIndigencyRequest()
     {
+        $this->resetValidation();
+
         // Validate input
         $this->validate([
             'first_name' => 'required|string|max:255',
             'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'email' => 'required|email',
             'address' => 'required|string|max:255',
             'years_of_stay' => 'required',
             'name_of_student' => 'required',
@@ -266,6 +307,7 @@ class Documents extends Component
             'first_name' => $this->first_name,
             'middle_name' => $this->middle_name,
             'last_name' => $this->last_name,
+            'email' => $this->email,
             'address' => $this->address,
             'years_of_stay' => $this->years_of_stay,
             'purpose' => $this->purpose,
@@ -276,9 +318,14 @@ class Documents extends Component
             'request_type' => "Certificate of Indigency",
         ]);
 
-        // Success message
-        session()->flash('message', 'Certificate of Indigency request submitted successfully.');
+        $emailData = [
+            'name' => $this->first_name,
+            'requestType' => "Certificate of Indigency",
+        ];
 
+        Mail::to($this->email)->send(new RequestAutoResponseMail($emailData));
+
+        $this->alert('success', 'Certificate of Indigency request submitted successfully.');
         // Reset form fields
         $this->reset();
     }
