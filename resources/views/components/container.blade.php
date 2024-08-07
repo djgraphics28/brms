@@ -1,4 +1,4 @@
-@props(['size' => 'md'])
+@props(['size' => 'lg'])
 
 @php($size = match ($size) {
   'sm' => 'max-w-4xl',

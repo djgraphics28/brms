@@ -20,8 +20,10 @@
       <!-- Navigation Menu -->
       <ul id="menu" class="hidden lg:flex space-x-4 mr-auto">
         <li><a wire:navigate href="/" class="text-white hover:underline">HOME</a></li>
+        <li><a wire:navigate href="/announcement" class="text-white hover:underline">ANNOUNCEMENT</a></li>
         <li><a wire:navigate href="/barangay-officials" class="text-white hover:underline">BARANGAY OFFICIALS</a></li>
         <li><a wire:navigate href="/documents" class="text-white hover:underline">DOCUMENTS</a></li>
+        <li><a wire:navigate href="/contactus" class="text-white hover:underline">CONTACT US</a></li>
       </ul>
 
       <div>
@@ -40,8 +42,10 @@
   <div id="mobile-menu" class="lg:hidden absolute top-16 left-0 w-full bg-black text-white">
     <ul class="flex flex-col space-y-4 p-4">
       <li><a wire:navigate href="/" class="text-white hover:underline">HOME</a></li>
+      <li><a wire:navigate href="/announcement" class="text-white hover:underline">Announcement</a></li>
       <li><a wire:navigate href="/barangay-officials" class="text-white hover:underline">BARANGAY OFFICIALS</a></li>
       <li><a wire:navigate href="/documents" class="text-white hover:underline">DOCUMENTS</a></li>
+      <li><a wire:navigate href="/contactus" class="text-white hover:underline">CONTACT US</a></li>
     </ul>
   </div>
 </header>

@@ -1,7 +1,7 @@
 <div>
-    <x-hero title="Barangay Officials" />
+  <x-hero title="Barangay Officials" backgroundImage="{{ asset('images/brangayofficials.jpg') }}" />
 
-    <x-container>
+    <x-container class="bg-red">
         <h2 class="mb-8 text-4xl text-center">
             BARANGAY OFFICIALS
         </h2>

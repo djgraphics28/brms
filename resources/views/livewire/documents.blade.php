@@ -1,5 +1,5 @@
 <div>
-    <x-hero title="Documents" />
+    <x-hero  backgroundImage="{{ asset('images/documents.jpg') }}"/>
 
     <x-container>
         <h2 class="mb-8 text-4xl text-center">
