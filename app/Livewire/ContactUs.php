@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Concern;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use App\Mail\ContactUsMail;
@@ -24,6 +25,12 @@ class ContactUs extends Component
     public function submit()
     {
         $this->validate();
+
+        Concern::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'message' => $this->message,
+        ]);
 
         // Send the email
         Mail::to('no-reply@storosario.online')->send(new ContactUsMail($this->name, $this->email, $this->message));
