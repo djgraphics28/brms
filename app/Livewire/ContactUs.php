@@ -33,7 +33,7 @@ class ContactUs extends Component
         ]);
 
         // Send the email
-        Mail::to('no-reply@storosario.online')->send(new ContactUsMail($this->name, $this->email, $this->message));
+        Mail::to('no-reply@storosariobrms.online')->send(new ContactUsMail($this->name, $this->email, $this->message));
 
         Mail::to($this->email)->send(new ContactUsAutoResponderMail($this->name));
 
