@@ -1,3 +1,5 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <footer class="py-8 mt-8 border-t bg-gray-200 justify-self-end" style="height: 300px;">
     <x-container>
         <div class="flex h-full">
@@ -13,16 +15,29 @@
                     <h3 class="text-lg font-semibold mb-2">Links</h3>
                     <ul class="space-y-1">
                         <li>
-                            <span class="font-bold">Barangay Sto. Rosario Silangan Facebook:</span>
+                            <span class="font-bold">
+                                <i class="fab fa-facebook"></i> Barangay Sto. Rosario Silangan Facebook:
+                            </span>
                             <a href="https://facebook.com/profile.php?id=61553585558306" target="_blank"
                                 class="text-blue-600 hover:underline">
                                 facebook.com/profile.php?id=61553585558306
                             </a>
                         </li>
                         <li>
-                            <span class="font-bold">Pateros website:</span>
+                            <span class="font-bold">
+                                <i class="fas fa-globe"></i> Pateros website:
+                            </span>
                             <a href="https://www.pateros.com" target="_blank" class="text-blue-600 hover:underline">
                                 www.pateros.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="font-bold">
+                                <i class="fab fa-facebook"></i> Pateros Facebook:
+                            </span>
+                            <a href="https://facebook.com/isangPateros/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                facebook.com/isangPateros/
                             </a>
                         </li>
                     </ul>
@@ -31,9 +46,15 @@
                 <!-- Contact Info Section -->
                 <div>
                     <h3 class="text-lg font-semibold mb-2">Contact us</h3>
-                    <p class="mb-1">BatangSilangan01@gmail.com</p>
-                    <p class="mb-1">Felix Avila, Pateros, Philippines, 1620</p>
-                    <p>286812435</p>
+                    <p class="mb-1">
+                        <i class="fas fa-envelope"></i> BatangSilangan01@gmail.com
+                    </p>
+                    <p class="mb-1">
+                        <i class="fas fa-map-marker-alt"></i> Felix Avila, Pateros, Philippines, 1620
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> 286812435
+                    </p>
                 </div>
             </div>
         </div>

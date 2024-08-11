@@ -563,7 +563,7 @@
 
                         </div>
 
-                        <div class="flex space-x-4">
+                        {{-- <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label for="contact_number" class="block text-sm font-medium text-gray-700">Contact
                                     Number</label>
@@ -582,7 +582,7 @@
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="flex space-x-4">
                             <div class="w-1/2">
@@ -615,15 +615,25 @@
                         </div>
 
                         <div>
-                            <label for="purpose" class="block text-sm font-medium text-gray-700">Purpose</label>
-                            <input type="text" id="purpose" wire:model="purpose"
+                            <label for="years_of_stay" class="block text-sm font-medium text-gray-700">Years of Stay</label>
+                            <input type="number" id="years_of_stay" wire:model="years_of_stay"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
-                            @error('purpose')
+                            @error('years_of_stay')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
                         </div>
 
-                        <div class="flex space-x-4">
+
+                        <div>
+                          <label for="purpose" class="block text-sm font-medium text-gray-700">Purpose</label>
+                          <input type="text" id="purpose" wire:model="purpose"
+                              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                          @error('purpose')
+                              <span class="text-red-500 text-sm">{{ $message }}</span>
+                          @enderror
+                      </div>
+
+                        {{-- <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
                                 <input type="text" id="weight" wire:model="weight"
@@ -690,7 +700,7 @@
                             @error('relationship')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         <div>
                             <label for="valid_id_1" class="block text-sm font-medium text-gray-700">Valid ID 1</label>

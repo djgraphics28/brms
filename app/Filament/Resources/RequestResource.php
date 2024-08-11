@@ -61,7 +61,10 @@ class RequestResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('approved_by')
                     ->numeric(),
-                Forms\Components\FileUpload::make('valid_id')
+                Forms\Components\FileUpload::make('valid_id1')
+                    ->columnSpanFull()
+                    ->required(),
+                Forms\Components\FileUpload::make('valid_id2')
                     ->columnSpanFull()
                     ->required(),
             ]);
@@ -163,7 +166,15 @@ class RequestResource extends Resource
                                 ->danger()
                                 ->send();
                         }
+                    }),
+                Tables\Actions\Action::make('downloadCertificate')
+                    ->label('Download Certificate')
+                    ->color('primary')
+                    // ->icon('heroicon-o-circle')
+                    ->url(function ($record) {
+                        return route('download.certificate', $record->id);
                     })
+                    ->visible(fn($record) => $record->status === 'Approved'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
