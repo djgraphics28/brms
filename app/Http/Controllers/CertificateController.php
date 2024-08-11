@@ -17,12 +17,12 @@ class CertificateController extends Controller
             $pdf = Pdf::loadView('pdfs.barangay-clearance', compact('request'))
                 ->setPaper('a4', 'portrait');
 
-            return $pdf->stream('barangay_clearance_' . $request->id . '.pdf');
+            return $pdf->download('barangay_clearance_' . $request->id . '.pdf');
         } else if ($request->request_type == 'Certificate of Indigency') {
             $pdf = Pdf::loadView('pdfs.certificate-of-indigency', compact('request'))
                 ->setPaper('a4', 'portrait');
 
-            return $pdf->stream('certificate_of_indigency_' . $request->id . '.pdf');
+            return $pdf->download('certificate_of_indigency_' . $request->id . '.pdf');
         }
 
     }
