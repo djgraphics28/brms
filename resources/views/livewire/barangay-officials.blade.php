@@ -2,9 +2,9 @@
   <x-hero title="Barangay Officials" backgroundImage="{{ asset('images/brangayofficials.jpg') }}" />
 
     <x-container class="bg-red">
-        <h2 class="mb-8 text-4xl text-center">
+        {{-- <h2 class="mb-8 text-4xl text-center">
             BARANGAY OFFICIALS
-        </h2>
+        </h2> --}}
 
         <!-- Barangay Captain -->
         @if (!is_null($capt))
