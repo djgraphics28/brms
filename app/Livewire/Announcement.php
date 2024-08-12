@@ -32,7 +32,8 @@ class Announcement extends Component
 
         // Sort by published_at in descending order to ensure latest posts are first
         $posts = Post::published()
-            ->orderBy('published_at', 'desc')  // Ensure latest posts come first
+            ->orderBy('published_at', 'desc')  // Primary sort by published date
+            ->orderBy('created_at', 'desc')    // Secondary sort by creation date
             ->paginate(6);
 
         return view('livewire.announcement', compact('posts'));
