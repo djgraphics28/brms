@@ -30,8 +30,9 @@ class Announcement extends Component
                     ->author(Schema::organization()->name($title))
             );
 
+        // Sort by published_at in descending order to ensure latest posts are first
         $posts = Post::published()
-            ->latest('published_at')
+            ->orderBy('published_at', 'desc')  // Ensure latest posts come first
             ->paginate(6);
 
         return view('livewire.announcement', compact('posts'));
