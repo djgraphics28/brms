@@ -104,7 +104,8 @@ class RequestResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\ImageColumn::make('valid_id')
                     ->searchable(),
-            ])
+            ])->defaultSort('created_at', 'desc')
+
             ->filters([
                 // Adding filters for status and request_type
                 Tables\Filters\SelectFilter::make('status')
