@@ -195,7 +195,7 @@ class RequestResource extends Resource
     {
         return [
             'index' => Pages\ListRequests::route('/'),
-            'create' => Pages\CreateRequest::route('/create'),
+            // 'create' => Pages\CreateRequest::route('/create'),
             'view' => Pages\ViewRequest::route('/{record}'),
             'edit' => Pages\EditRequest::route('/{record}/edit'),
         ];
