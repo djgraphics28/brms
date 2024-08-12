@@ -61,10 +61,10 @@ class RequestResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('approved_by')
                     ->numeric(),
-                Forms\Components\FileUpload::make('valid_id1')
+                Forms\Components\FileUpload::make('valid_id_1')
                     ->columnSpanFull()
                     ->required(),
-                Forms\Components\FileUpload::make('valid_id2')
+                Forms\Components\FileUpload::make('valid_id_2')
                     ->columnSpanFull()
                     ->required(),
             ]);
