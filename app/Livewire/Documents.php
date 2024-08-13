@@ -96,7 +96,7 @@ class Documents extends Component
 
         $this->validate([
             'first_name' => 'required|string|max:255',
-            'middle_name' => 'required|string|max:255',
+            // 'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email',
             'address' => 'required|string|max:255',
@@ -154,7 +154,7 @@ class Documents extends Component
 
         $this->validate([
             'first_name' => 'required|string|max:255',
-            'middle_name' => 'required|string|max:255',
+            // 'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email',
             'address' => 'required|string|max:255',
@@ -179,7 +179,7 @@ class Documents extends Component
 
         Request::create([
             'first_name' => $this->first_name,
-            'middle_name' => $this->middle_name,
+            // 'middle_name' => $this->middle_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
             'address' => $this->address,
@@ -216,7 +216,7 @@ class Documents extends Component
         // Validate input
         $this->validate([
             'first_name' => 'required|string|max:255',
-            'middle_name' => 'required|string|max:255',
+            // 'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email',
             'address' => 'required|string|max:255',
